@@ -40,3 +40,5 @@ node_modules/
 .development
 doc/
 Gemfile.lock
+.development
+
