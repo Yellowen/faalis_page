@@ -1,8 +1,9 @@
-if File.exists?([File.expand_path("../../../", __FILE__),
-                 ".development"].join("/"))
+if File.exists?([File.expand_path('../../../', __FILE__),
+                 '.development'].join("/"))
   $LOAD_PATH <<  File.expand_path('../../../../Faalis/lib', __FILE__)
 end
-require "faalis"
+
+require 'faalis'
 
 
 module FaalisPage
