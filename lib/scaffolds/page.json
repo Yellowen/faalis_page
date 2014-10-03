@@ -1,0 +1,35 @@
+{
+    "name": "page",
+    "fields": [
+        {
+            "name": "title",
+            "type": "string",
+            "bulk": false
+        },
+        {
+            "name": "layout",
+            "type": "in",
+            "bulk": false,
+            "to": [
+                "default"
+            ]
+        },
+        {
+            "name": "description",
+            "type": "string",
+            "bulk": false
+        },
+        {
+            "name": "tags",
+            "type": "string",
+            "bulk": false
+        },
+        {
+            "name": "raw_content",
+            "type": "text",
+            "bulk": false
+        }
+    ],
+    "no_filter": true,
+    "title-field": "title"
+}

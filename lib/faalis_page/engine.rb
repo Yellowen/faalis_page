@@ -16,7 +16,7 @@ module FaalisPage
       config.models_with_permission = []
     end
 
-    ::Faalis::Plugins.register 'faalis_page', self
+    #::Faalis::Plugins.register 'faalis_page', self
     ::Faalis::Engine.dashboard_js_manifest = 'faalis_page/application.js'
   end
 end
