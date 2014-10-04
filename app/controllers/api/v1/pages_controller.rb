@@ -49,7 +49,7 @@ class API::V1::PagesController < APIController
   end
 
   def resource_params
-    params.require(:page).permit(:id, :title, :layout, :description, :tags, :raw_content)
+    params.require(:page).permit(:id, :title, :layout, :description, :tags, :permalink, :publish, :raw_content)
   end
 
 end

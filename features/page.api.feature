@@ -12,12 +12,12 @@ Feature: Pages API
     Then I should get "401" status code
     When format is json and I send patch to "/api/v1/pages/1" with:
     """
-    {"title":"gGUEmvxrQAfgcgSYOWlghMhrGXVznKExSwlnfLptKlowfeUstQ","layout":"FclpEWvGIvTPdeXJpioRCDLFNuqtdHwMDjKqTynxRRPpSqrBGS","description":"uWcCBkhoqYNvRxcmErnVeWQylVvQOeDwnYShGBpXSnAbljOPxI","tags":"XyaoCMqgXXNquEvhaTMXHxwejsWvfiliJWGRanCvcgyKPxvrqu","raw_content":"JvUWSeXAHlWeXSxaatprmFsIQqiUFjZSuhoNzIVXtCKbuyEsoi"}
+    {"title":"zalRIQFafJheKKrxedYMomXRcHzSKFzNqnwvUElklCzgfFVBjz","layout":"mLggMRHCdQwQAWBnitOzRHtITvYCUVzFVNTuvTBtbrHxPMCOmO","description":"jNdaBVHTxgsPXnXEHfWsyQFGLNEvtFzTDoPLQImIRQzIjzpvxk","tags":"bTFcCAOjAtwuoDJrTGSQFTsicJoJDSVYZcCHEtKmcjBXzQLkVm","permalink":"bnwQXJyuRAwoUHXFDmIZYimojfRJtOAKIFJhFqRPrkzkoqLOAL","publish":"tvYxhDztTgpgnvECxsGoDcbpnMvgJOyPFLQIXRwPNyjFjUdhjj","raw_content":"RAqfJhPayuvYuvMjwyXouvfCttdfgTTmYrnxvFPNvfDKFDaGnh"}
     """
     Then I should get "401" status code
     When format is json and I send post to "/api/v1/pages" with:
     """
-    {"title":"IYjnIuqDNOwbgItKpJOBSqncxnAOIGwowNaAITsOfkWCBSswVI","layout":"uZSTInzrDrVTBkVVYSViyQLiInuFpbEPSuoIWCCoqFOCtvEGGV","description":"toCgjyyNVpHQOOrNIoViFxrGPboPJhQOUvQYGhFsIrZcLQabZt","tags":"zPmXwqIrbHryTIihxInmFYxrIONqtjTwaDltHgpNGRqPOkaafD","raw_content":"JLQFhCOYXwUywaeDJfKidPSMPWNwvccyssBGHtHgnELQalWeDn"}
+    {"title":"inyYWgmCfBznqZZYhwRckErLYZTTDOaxOopoQQjUabEanwgJzG","layout":"irhwUeRIIkiIMRiOQVGCEzlrRIPuHQKBMnvTVfznQHUfgUFWlM","description":"SHgoMWwcwKzDwzwecYUFOZfoTXZEzHCUhyQqSNurDcGJfbNnIp","tags":"aVbkuzRGfOmwnRGglIdUtRLXXeInYPnCRjdmTjqDyoUWebOGgc","permalink":"XIrtVNTKhdjPbECpQJHxPJgdyokncZLHRcQJlASrFQGWXsjSxg","publish":"TaetiBeejNDTPMkwKWOLocpUDycnRWmhyjDrgQzMuGOmHHBNue","raw_content":"aKcuIJcKMDnGTjhoFxBQEBPhbyKrteevJThzlCjYKkIqtvwMyJ"}
     """
     Then I should get "401" status code
     When format is json and I send delete to "/api/v1/pages/1"

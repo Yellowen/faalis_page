@@ -226,6 +226,8 @@ Pages.controller("AddPageController", ["Restangular", "$scope", "$location", "$r
                     $scope.layout = data.layout;
                     $scope.description = data.description;
                     $scope.tags = data.tags;
+                    $scope.permalink = data.permalink;
+                    $scope.publish = to_boolean(data.publish);
                     $scope.raw_content = data.raw_content;
                 }, function(data){
                     catch_error(data);
@@ -257,6 +259,8 @@ Pages.controller("AddPageController", ["Restangular", "$scope", "$location", "$r
             layout: $scope.layout,
             description: $scope.description,
             tags: $scope.tags,
+            permalink: $scope.permalink,
+            publish: $scope.publish,
             raw_content: $scope.raw_content,
             __res__: 0
         }};

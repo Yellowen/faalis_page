@@ -24,5 +24,5 @@ group :development do
   gem "email_spec"
   gem "cucumber-rails", require: false
   gem "json_spec", git: "git://github.com/Yellowen/json_spec.git"
-  gem "capybara-webkit"
+  #gem "capybara-webkit"
 end

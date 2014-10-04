@@ -25,6 +25,16 @@
             "bulk": false
         },
         {
+            "name": "permalink",
+            "type": "string",
+            "bulk": false
+        },
+        {
+            "name": "publish",
+            "type": "boolean",
+            "bulk": false
+        },
+        {
             "name": "raw_content",
             "type": "text",
             "bulk": false
