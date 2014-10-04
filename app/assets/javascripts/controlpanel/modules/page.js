@@ -24,8 +24,8 @@ Pages.config(["$routeProvider", function($routeProvider){
 // This controller is responsible for list page (index)
 Pages.controller("PageController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams", function($scope, gettext, API, catch_error, $location, $routeParams){
 
-
-
+    
+    
     // Cache object for each field name possible values
     $scope.cache = {};
 
@@ -60,7 +60,7 @@ Pages.controller("PageController", ["$scope", "gettext", "Restangular", "catch_e
             classes: "btn tiny green",
             permission: {
               name: "create",
-              model: "Page"
+              model: "Faalis::Page"
             },
             route: "#/pages/new"
 
@@ -71,7 +71,7 @@ Pages.controller("PageController", ["$scope", "gettext", "Restangular", "catch_e
             classes: "btn tiny yellow",
             permission: {
               name: "update",
-              model: "Page"
+              model: "Faalis::Page"
             },
             action: function(){
                 $scope.$apply("bulk_edit = ! bulk_edit");
@@ -84,7 +84,7 @@ Pages.controller("PageController", ["$scope", "gettext", "Restangular", "catch_e
             classes: "btn tiny red",
             permission: {
               name: "create",
-              model: "Page"
+              model: "Faalis::Page"
             },
             action: function(){
                 var selected = _.find($scope.pages, function(x){
@@ -157,7 +157,7 @@ Pages.controller("PageController", ["$scope", "gettext", "Restangular", "catch_e
         $scope.view_progressbar = false;
         $scope.bulk_edit = false;
     };
-
+    
     /*
      * On delete event handler - `items` is an array of objects to delete
      */
@@ -180,32 +180,32 @@ Pages.controller("PageController", ["$scope", "gettext", "Restangular", "catch_e
             });
 
     };
-
-
+    
+    
     API.all("pages").getList()
         .then(function(data){
             $scope.pages = data;
         }, function(data){
             catch_error(data);
         });
-
+     
 }]);
 
 
 Pages.controller("AddPageController", ["Restangular", "$scope", "$location", "$routeParams", "gettext", "catch_error", function(API, $scope, $location, $routeParams, gettext, catch_error){
 
-
+    
 
     $scope.select2options = {};
     $scope.editing = false;
     $scope.obj_id = null;
     var is_copy = false;
 
-
+    
     $scope.layout_data = {
         type: 'in',
         choices: _.sortBy([{name: "default", title: "Default"},]),
-
+  
         name: 'layout'
     };
     $scope.layout_choices = _.sortBy([
@@ -221,7 +221,7 @@ Pages.controller("AddPageController", ["Restangular", "$scope", "$location", "$r
 
         var obj = API.one("pages", $scope.obj_id).get()
                 .then(function(data) {
-
+                
                     $scope.title = data.title;
                     $scope.layout = data.layout;
                     $scope.description = data.description;
@@ -301,6 +301,7 @@ Pages.controller("AddPageController", ["Restangular", "$scope", "$location", "$r
 
 Pages.controller("PageMenuController", ["gettext", function(gettext){
     this.menu_items = [
-        {title: gettext("Pages"), url: "/pages/", permission: {action: "read", model: "Faalis::Page"}},
-    ];
+        {title: gettext("Pages"), url: "/pages/", permission: {action: "read", model: "Page"}},
+        ];
 }]);
+

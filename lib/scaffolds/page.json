@@ -41,5 +41,14 @@
         }
     ],
     "no_filter": true,
+    "menu": [
+        {
+            "url": "/pages/",
+            "title": "Pages",
+            "model": "Page",
+            "action": "read"
+        }
+    ],
+    "model": "Faalis::Page",
     "title-field": "title"
 }

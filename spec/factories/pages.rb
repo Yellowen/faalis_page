@@ -2,12 +2,12 @@
 
 FactoryGirl.define do
   factory :page do
-    title "MyString"
-    layout "MyString"
+    title "MyPage1"
+    layout ""
     description "MyString"
-    tags "MyString"
-    permalink "MyString"
-    publish false
+    tags "tag1, tag2"
+    permalink ""
+    publish true
     raw_content "MyText"
   end
 end

@@ -2,7 +2,7 @@ class API::V1::PagesController < APIController
   
   before_filter :build_resource, :only => :create
   
-  load_and_authorize_resource :except => [:destory]
+  load_and_authorize_resource :except => [:destory], :class => "Faalis::Page"
   
   # GET /api/v1/pages
   def index
@@ -38,13 +38,13 @@ class API::V1::PagesController < APIController
 
   def destroy
     ids = params[:id].split(",")
-    @pages = ::Page.where(:id => ids)
+    @pages = Faalis::Page.where(:id => ids)
     authorize! :destroy, @pages
     @pages.destroy_all
   end
 
   def build_resource
-    @page = ::Page.new(resource_params)
+    @page = Faalis::Page.new(resource_params)
     
   end
 

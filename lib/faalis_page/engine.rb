@@ -6,15 +6,18 @@ end
 require 'faalis'
 
 
-module FaalisPage
+module Faalis
   # Page engine class for Faalis page plugin
   # mount this engine under `/`
-  class Engine < ::Rails::Engine
-  engine_name 'faalis_page'
+  class PageEngine < ::Rails::Engine
+    engine_name 'faalis_page'
+
+    isolate_namespace Faalis
 
     ::Faalis::Engine.setup do |config|
       config.models_with_permission = []
     end
+
 
     config.generators do |g|
       g.test_framework      :rspec,        fixture: false
@@ -24,6 +27,5 @@ module FaalisPage
     end
 
     #::Faalis::Plugins.register 'faalis_page', self
-    ::Faalis::Engine.dashboard_js_manifest = 'faalis_page/application.js'
   end
 end
