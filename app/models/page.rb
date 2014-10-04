@@ -1,2 +1,2 @@
-class Page < Faalis::ORM.proper_base
+class Page < ActiveRecord::Base
 end

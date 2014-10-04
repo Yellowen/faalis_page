@@ -16,6 +16,13 @@ module FaalisPage
       config.models_with_permission = []
     end
 
+    config.generators do |g|
+      g.test_framework      :rspec,        fixture: false
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.assets false
+      g.helper false
+    end
+
     #::Faalis::Plugins.register 'faalis_page', self
     ::Faalis::Engine.dashboard_js_manifest = 'faalis_page/application.js'
   end
