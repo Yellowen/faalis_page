@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'faalis'
   s.add_dependency 'jquery-rails'
   s.add_dependency 'uglifier', '>= 1.3.0'
-  s.add_dependency 'sass-rails', '~> 4.0.0'
+  s.add_dependency 'sass-rails', '~> 5.0.0'
   s.add_dependency 'jbuilder', '~> 1.2'
   s.add_dependency 'globalize', '>= 4.0.0.alpha.2'
 end
