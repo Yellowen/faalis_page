@@ -1,3 +1,5 @@
-module FaalisPage
-  VERSION = '0.1.0'
+module Faalis
+  module Page
+    VERSION = '2.0.0'
+  end
 end
