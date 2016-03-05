@@ -1,4 +1,4 @@
-module Faalis
+module Faalis::Page
   class Page < Faalis::ORM.proper_base_class
 
     include Faalis::Concerns::Authorizable
