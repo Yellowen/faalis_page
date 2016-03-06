@@ -1,6 +1,6 @@
 class CreatePages < ActiveRecord::Migration
   def change
-    create_table :pages do |t|
+    create_table :faalis_page_pages do |t|
       t.string :title
       t.string :layout, default: 'application'
       t.string :description
@@ -15,5 +15,7 @@ class CreatePages < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :faalis_page_pages, :permalink
   end
 end

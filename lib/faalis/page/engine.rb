@@ -1,4 +1,4 @@
-module Faalis
+module Faalis::Page
   # Page engine class for Faalis page plugin
   # mount this engine under `/`
   class Engine < ::Rails::Engine
