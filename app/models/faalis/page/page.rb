@@ -12,8 +12,17 @@ module Faalis::Page
       field :tags
       field :description
       field :permalink
-      field :publish, type: Boolean, default: false
+      field :published, type: Boolean, default: false
+      field :members_only, type: Boolean, default: false
+      # Should be fixed for mongoid
+      field :user_id
       field :raw_content
+    end
+
+    belongs_to :user, class_name: 'Faalis::User'
+
+    def can_view?(current_user)
+      published && members_only
     end
   end
 end

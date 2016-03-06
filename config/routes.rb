@@ -1,2 +1,2 @@
-Rails.application.routes.draw do
+Faalis::Page::Engine.routes.draw do
 end

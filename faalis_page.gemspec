@@ -1,14 +1,14 @@
 $:.push File.expand_path('../lib', __FILE__)
 
 # Maintain your gem's version:
-require 'faalis_page/version'
+require 'faalis/page/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
 
   s.licenses = ['GPL-2']
   s.name        = 'faalis-page'
-  s.version     = FaalisPage::VERSION
+  s.version     = Faalis::Page::VERSION
   s.authors     = ['Sameer Rahmani']
   s.email       = ['lxsameer@gnu.org']
   s.homepage    = 'http://github.com/Yellowen/faalis_page'
@@ -19,5 +19,4 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'sqlite3'
   s.add_dependency 'faalis'
-  s.add_dependency 'globalize', '>= 5.0.0'
 end
