@@ -22,7 +22,8 @@ module Faalis::Page
     belongs_to :user, class_name: 'Faalis::User'
 
     def url
-      routes.url_helpers.page({ permalink: permalink })
+      #Engine.routes.url_helpers.page_url({ permalink: permalink })
+      permalink
     end
 
     def can_view?(current_user)
