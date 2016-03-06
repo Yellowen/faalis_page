@@ -8,4 +8,10 @@ class Faalis::Page::Dashboard::PagesController < ::Dashboard::ApplicationControl
   in_form do |form|
     form.attributes :title, :permalink, :layout, :tags, :published, :members_only, :description, :raw_content
   end
+
+  private
+
+  def before_create_hook(resource)
+    resource.user = current_user
+  end
 end
