@@ -1,4 +1,5 @@
 require 'redcarpet'
+require 'site_framework'
 
 module Faalis
   module Page

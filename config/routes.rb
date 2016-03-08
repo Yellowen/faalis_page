@@ -3,5 +3,11 @@ Faalis::Page::Engine.routes.draw do
     resources :pages
   end
 
-  get '/pages/:permalink', to: 'pages#show', as: :page
+  if ::Faalis::Page::Engine.use_site_framework
+    sites self do
+        get '/pages/:permalink', to: 'pages#show', as: :page
+    end
+  else
+    get '/pages/:permalink', to: 'pages#show', as: :page
+  end
 end
