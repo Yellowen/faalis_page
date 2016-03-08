@@ -21,6 +21,12 @@ module Faalis::Page
 
     belongs_to :user, class_name: 'Faalis::User'
 
+    scope :published, -> { where(published: true) }
+
+    validates_presence_of :title
+
+    before_save :render_content
+
     def url
       #Engine.routes.url_helpers.page_url({ permalink: permalink })
       permalink
@@ -29,5 +35,13 @@ module Faalis::Page
     def can_view?(current_user)
       published && members_only
     end
+
+    private
+
+    def render_content
+      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+      self.content  = markdown.render(raw_content)
+    end
+
   end
 end

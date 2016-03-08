@@ -9,6 +9,7 @@ class CreatePages < ActiveRecord::Migration
       t.integer :user_id
 
       t.text :raw_content
+      t.text :content
 
       t.boolean :members_only, default: false
       t.boolean :published, default: false
