@@ -1,9 +1,9 @@
 module Faalis::Page
   class Page < Faalis::ORM.proper_base_class
 
-    include Faalis::Concerns::Authorizable
+    include ::Faalis::Concerns::Authorizable
 
-    if Faalis::ORM.mongoid?
+    if ::Faalis::ORM.mongoid?
       include Mongoid::Document
       include Mongoid::Timestamps
 
@@ -33,13 +33,16 @@ module Faalis::Page
     end
 
     def can_view?(current_user)
-      published && members_only
+      if members_only
+        return published && user == current_user
+      end
+      published
     end
 
     private
 
     def render_content
-      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+      markdown = ::Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
       self.content  = markdown.render(raw_content)
     end
 

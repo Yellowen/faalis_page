@@ -1,3 +1,4 @@
+require 'redcarpet'
 
 module Faalis
   module Page

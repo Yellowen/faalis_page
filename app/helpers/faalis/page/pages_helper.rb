@@ -1,4 +1,4 @@
 module Faalis::Page
-  module Page::PagesHelper
+  module PagesHelper
   end
 end

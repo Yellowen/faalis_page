@@ -18,5 +18,6 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", 'LICENSE', 'Rakefile', 'README.md']
 
   s.add_development_dependency 'sqlite3'
-  s.add_dependency 'faalis'
+  s.add_dependency 'faalis', '>2.0.7'
+  s.add_dependency 'redcarpet'
 end
