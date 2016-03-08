@@ -10,7 +10,7 @@ module Faalis::Page
       layout = 'page'
       layout = @page.layout unless @page.layout.blank?
 
-      render 'show', layout: layout
+      render '/faalis/pages/show', layout: layout
     end
 
     private

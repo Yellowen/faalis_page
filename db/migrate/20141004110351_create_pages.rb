@@ -2,7 +2,7 @@ class CreatePages < ActiveRecord::Migration
   def change
     create_table :faalis_page_pages do |t|
       t.string :title
-      t.string :layout, default: 'application'
+      t.string :layout, default: 'layouts/page'
       t.string :description
       t.string :tags
       t.string :permalink
