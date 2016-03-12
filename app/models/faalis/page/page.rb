@@ -2,6 +2,7 @@ module Faalis::Page
   class Page < Faalis::ORM.proper_base_class
 
     include ::Faalis::Concerns::Authorizable
+    include ::SiteFramework::DomainAware
 
     if ::Faalis::ORM.mongoid?
       include Mongoid::Document
