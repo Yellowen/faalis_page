@@ -7,7 +7,7 @@ require 'faalis/page/version'
 Gem::Specification.new do |s|
 
   s.licenses = ['GPL-2']
-  s.name        = 'faalis_page'
+  s.name        = 'faalis-page'
   s.version     = Faalis::Page::VERSION
   s.authors     = ['Sameer Rahmani']
   s.email       = ['lxsameer@gnu.org']
