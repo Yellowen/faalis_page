@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Page::MenuPolicyTest < ActiveSupport::TestCase
+class Faalis::Page::MenuPolicyTest < ActiveSupport::TestCase
 
   def test_scope
   end
