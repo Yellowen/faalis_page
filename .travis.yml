@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.2.0
+
+before_install:
+  - "export DISPLAY=:99.0"
+  - gem install bundler
+
+install: bundle
+
+before_script: bundle exec rake db:migrate
+script: xvfb-run bundle exec rake test
