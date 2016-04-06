@@ -2,6 +2,24 @@
 
 **Faalis Page** is a `Faalis` plugin to create and manage web pages easily.
 
+## Installation
+Add the gem to your gem file with its rails-assets requirement:
+
+```ruby
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap-treeview'
+end
+
+gem 'faalis-page'
+```
+
+Then install the migrations:
+
+```bash
+rails g faalis_page:install:migrations
+```
+
 ## Contributing
 
 1. Fork it

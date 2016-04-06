@@ -1,3 +1,5 @@
+require 'faalis/dashboard'
+
 class Faalis::Dashboard::Models::Sidebar
   def page_entries
     menu I18n.t('faalis.page.dashboard.pages'), icon: 'fa fa-file-o' do
