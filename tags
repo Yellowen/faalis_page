@@ -1,0 +1,15 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Engine	lib/faalis/page/engine.rb	/^  class Engine < ::Rails::Engine$/;"	c	class:Faalis
+Faalis	lib/faalis/page.rb	/^module Faalis$/;"	m
+Faalis	lib/faalis/page/engine.rb	/^module Faalis::Page$/;"	m
+Faalis	lib/faalis/page/sidebar.rb	/^class Faalis::Dashboard::Models::Sidebar$/;"	c
+Faalis	lib/faalis/page/version.rb	/^module Faalis$/;"	m
+Page	lib/faalis/page.rb	/^  module Page$/;"	m	class:Faalis
+Page	lib/faalis/page/version.rb	/^  module Page$/;"	m	class:Faalis
+page_entries	lib/faalis/page/sidebar.rb	/^  def page_entries$/;"	f	class:Faalis
+setup	lib/faalis/page/engine.rb	/^    def self.setup$/;"	F	class:Faalis.Engine

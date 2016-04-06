@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: faalis_page_pages
+#
+#  id           :integer          not null, primary key
+#  title        :string
+#  layout       :string           default("layouts/page")
+#  description  :string
+#  tags         :string
+#  permalink    :string
+#  user_id      :integer
+#  raw_content  :text
+#  content      :text
+#  members_only :boolean          default(FALSE)
+#  published    :boolean          default(FALSE)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  domain_id    :integer
+#
+
 module Faalis::Page
   class Page < Faalis::ORM.proper_base_class
 
@@ -43,8 +63,10 @@ module Faalis::Page
     private
 
     def render_content
-      markdown = ::Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-      self.content  = markdown.render(raw_content)
+      unless raw_content.blank?
+        markdown = ::Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+        self.content  = markdown.render(raw_content)
+      end
     end
 
   end

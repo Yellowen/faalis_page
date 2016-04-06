@@ -45,4 +45,5 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'guard-minitest'
   gem 'pg'
+  gem 'annotate'
 end
