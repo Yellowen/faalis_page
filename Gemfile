@@ -26,7 +26,22 @@ gemspec
 # To use debugger
 # gem 'debugger'
 
-group :development do
+group :development, :test do
   gem 'faalis', path:'../Faalis'
   gem "site_framework", path: '../site_framework'
+  gem 'minitest-rails'
+  gem 'guard'
+  gem 'rb-fsevent'
+  gem 'capybara'
+  gem 'connection_pool'
+  gem 'launchy'
+  gem 'minitest-reporters'
+  gem 'mocha'
+  gem 'poltergeist'
+  gem 'fabrication'
+  gem 'minitest-rails-capybara'
+  gem 'minitest-around'
+  gem 'database_cleaner'
+  gem 'guard-minitest'
+  gem 'pg'
 end

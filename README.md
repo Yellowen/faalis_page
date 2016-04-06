@@ -12,6 +12,14 @@ source 'https://rails-assets.org' do
 end
 
 gem 'faalis-page'
+
+# Database driver
+# it's not possible to use this gem with sqlite
+gem 'pg' # if you want to use it with postgres
+
+# or
+
+gem 'mysql2' # if you want to use it with mysql
 ```
 
 Then install the migrations:
