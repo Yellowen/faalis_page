@@ -40,11 +40,22 @@ module Faalis::Page
       assert_equal result.count, 4, msg: msg
     end
 
+    test "with `members_only` it would not be visible to signed in anonymous users" do
+      user_logged_in = false
+      subject = Fabricate(:page, title: 'ex2', members_only: true, published: true)
+
+      result = subject.can_view?(user_logged_in)
+
+      assert_not result, msg: 'can_view? shoud not allow anonymous access'
+    end
+
     test "with `members_only` it would be visible to signed in users only" do
+      user_logged_in = true
+      subject = Fabricate(:page, title: 'ex2', members_only: true, published: true)
 
-      page = @subject.create(title: 'ex2', members_only: true, published: true)
+      result = subject.can_view?(user_logged_in)
 
-      result = page.can_view?(user)
+      assert result, msg: 'can_view? shoud allow user access'
     end
   end
 end

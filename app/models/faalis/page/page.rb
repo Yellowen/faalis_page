@@ -53,9 +53,9 @@ module Faalis::Page
       permalink
     end
 
-    def can_view?(current_user)
+    def can_view?(user_logged_in)
       if members_only
-        return published && user == current_user
+        return published && user_logged_in
       end
       published
     end

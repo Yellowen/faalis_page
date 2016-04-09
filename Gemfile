@@ -46,4 +46,5 @@ group :development, :test do
   gem 'guard-minitest'
   gem 'pg'
   gem 'annotate'
+  gem 'faker'
 end
