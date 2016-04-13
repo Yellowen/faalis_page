@@ -46,6 +46,8 @@ module Faalis::Page
 
     validates_presence_of :title
 
+    validates :permalink, uniqueness: true
+
     before_save :render_content
 
     def url

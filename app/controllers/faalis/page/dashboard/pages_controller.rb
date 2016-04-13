@@ -16,10 +16,9 @@ class Faalis::Page::Dashboard::PagesController < ::Dashboard::ApplicationControl
 
     if SiteFramework::CurrentState.instance.domain.nil?
       logger.warn "Can not find current domain!"
-     else
-      resource.domain = SiteFramework::CurrentState.instance.domain.id
+    else
+      resource.domain_id = SiteFramework::CurrentState.instance.domain.id
     end
-    resource.domain = SiteFramework::CurrentState.instance.domain.try(:id)
 
   end
 end
