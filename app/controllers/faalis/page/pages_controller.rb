@@ -23,7 +23,7 @@ module Faalis::Page
     def show
       @page = ::Faalis::Page::Page.published.find_by(permalink: params[:permalink])
 
-      lputs @page
+      puts @page
       return not_found if @page.nil?
       return not_authorized unless @page.can_view?(current_user)
 

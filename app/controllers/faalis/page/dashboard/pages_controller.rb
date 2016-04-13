@@ -13,5 +13,13 @@ class Faalis::Page::Dashboard::PagesController < ::Dashboard::ApplicationControl
 
   def before_create_hook(resource)
     resource.user = current_user
+
+    if SiteFramework::CurrentState.instance.domain.nil?
+      logger.warn "Can not find current domain!"
+     else
+      resource.domain = SiteFramework::CurrentState.instance.domain.id
+    end
+    resource.domain = SiteFramework::CurrentState.instance.domain.try(:id)
+
   end
 end
