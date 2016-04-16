@@ -18,4 +18,7 @@
 #  domain_id    :integer
 #
 
+require 'test_helper'
 
+class Faalis::Page::PagesControllerTest < ::ActionController::TestCase
+end

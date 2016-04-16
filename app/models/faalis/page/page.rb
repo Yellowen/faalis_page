@@ -62,6 +62,10 @@ module Faalis::Page
       published
     end
 
+    def content
+      read_attribute(:content).html_safe
+    end
+
     private
 
     def render_content

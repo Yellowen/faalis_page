@@ -47,4 +47,6 @@ group :development, :test do
   gem 'pg'
   gem 'annotate'
   gem 'faker'
+  gem 'jquery-turbolinks'
+  gem 'amd'
 end

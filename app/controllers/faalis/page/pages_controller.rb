@@ -23,9 +23,8 @@ module Faalis::Page
     def show
       @page = ::Faalis::Page::Page.published.find_by(permalink: params[:permalink])
 
-      puts @page
       return not_found if @page.nil?
-      return not_authorized unless @page.can_view?(current_user)
+      return not_authorized unless @page.can_view?(user_signed_in?)
 
       layout = 'page'
       layout = @page.layout unless @page.layout.blank?
@@ -39,8 +38,12 @@ module Faalis::Page
       raise ::ActionController::RoutingError.new(t('faalis.page.not_found'))
     end
 
+    def access_deniend_template
+      "#{Rails.root}/public/403.html"
+    end
+
     def not_authorized
-      render '/403', status: 403, layout: false
+      render file: access_deniend_template, status: 403, layout: false
     end
   end
 end

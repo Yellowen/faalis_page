@@ -30,14 +30,14 @@ module Faalis::Page
 
     test "`published` scope should returns only published pages" do
       1.upto(4) do
-        @@subject.create(title: "example", published: true)
+        Fabricate(:page, title: "example#{rand(5)}", published: true, permalink: "randome-#{rand(100)}")
       end
-      @@subject.create(title: "example")
+      Fabricate(:page, title: "example", published: false, permalink: 'not-published')
       msg = "It seems that `published` scope returns all objects"
 
-      result = @@subject.published
+      result = ::Faalis::Page::Page.published
 
-      assert_equal result.count, 4, msg: msg
+      assert_equal 4, result.count, msg: msg
     end
 
     test "with `members_only` it would not be visible to signed in anonymous users" do
