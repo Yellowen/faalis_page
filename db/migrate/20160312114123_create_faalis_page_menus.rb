@@ -5,7 +5,7 @@ class CreateFaalisPageMenus < ActiveRecord::Migration
       t.integer :site_id
       t.boolean :published, default: false
       t.integer :user_id
-      t.json :items
+      t.json :data
 
       t.timestamps null: false
     end

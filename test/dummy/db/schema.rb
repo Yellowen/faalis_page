@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160416130832) do
     t.integer  "site_id"
     t.boolean  "published",  default: false
     t.integer  "user_id"
-    t.json     "items"
+    t.json     "data"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "domain_id"
