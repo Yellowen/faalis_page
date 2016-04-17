@@ -7,6 +7,10 @@ services:
 before_install:
   - "export DISPLAY=:99.0"
   - gem install bundler
+
+addons:
+  postgresql: "9.4"
+
 before_script:
   - psql -c 'create database faalis_page_test;' -U postgres
   - rm test/dummy/config/database.yml
