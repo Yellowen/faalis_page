@@ -27,13 +27,13 @@ module Faalis::Page
 
     def nodes
       return @nodes if @nodes
-      @nodes = Faalis::Dashboard::Models::RootMenu.new
+      @nodes = ::Faalis::Dashboard::Models::RootMenu.new
 
       data.map do |node|
         title = node.delete('title')
         fail ArgumentError.new "Can not find title attribute on '#{node.to_s}'" unless title
 
-        @nodes << Faalis::Dashboard::Models::Menu.new(title, node)
+        @nodes << ::Faalis::Dashboard::Models::Menu.new(title, node)
       end
 
       @nodes
@@ -42,7 +42,7 @@ module Faalis::Page
     def data
       _data = read_attribute(:data)
       _data.map do |node|
-        ActiveSupport::HashWithIndifferentAccess.new(node)
+        ::ActiveSupport::HashWithIndifferentAccess.new(node)
       end
     end
   end
