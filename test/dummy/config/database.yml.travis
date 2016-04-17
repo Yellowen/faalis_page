@@ -9,8 +9,8 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: faalis_page
-  password: "123456"
+  username: postgres
+  password: ""
 
 development:
   <<: *default
