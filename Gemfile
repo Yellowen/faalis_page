@@ -49,4 +49,5 @@ group :development, :test do
   gem 'faker'
   gem 'jquery-turbolinks'
   gem 'amd'
+  gem 'guard-cane'
 end
