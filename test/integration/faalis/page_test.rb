@@ -2,7 +2,7 @@ require "test_helper"
 
 class PageTest < ActionDispatch::IntegrationTest
 
-  before do
+  setup do
     ::Faalis::Page::Engine.use_site_framework = false
   end
 
