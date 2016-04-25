@@ -1,5 +1,6 @@
 require 'redcarpet'
 require 'site_framework'
+require 'rails-assets-bootstrap-treeview'
 
 module Faalis
   module Page
