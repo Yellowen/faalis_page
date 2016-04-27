@@ -1,3 +1,4 @@
 //= require bootstrap-treeview
 //= require_self
-define("bootstrap-treeview/bootstrap-treeview", [], function(){ alert("123");});
+define("bootstrap-treeview/bootstrap-treeview", [], function(){
+});
