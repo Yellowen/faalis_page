@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================= */
-console.log("asdasdasdasd");
+
 ;(function ($, window, document, undefined) {
 
 	/*global jQuery, console*/
@@ -115,6 +115,15 @@ console.log("asdasdasdasd");
 
                   // Add methods
                   addNode: $.proxy(this.addNode, this),
+
+                  // Remove method
+                  removeNode: $.proxy(this.removeNode, this),
+
+                  // Render
+                  render: $.proxy(this.render, this),
+
+                  // toJSON method
+                  toJSON: $.proxy(this.toJSON, this),
 			// Select methods
 			selectNode: $.proxy(this.selectNode, this),
 			unselectNode: $.proxy(this.unselectNode, this),
@@ -514,6 +523,46 @@ console.log("asdasdasdasd");
     node.nodes = nodes;
 
     this.setInitialStates(node, 0);
+    this.render();
+  };
+
+  Tree.prototype.toObject = function(Id) {
+    var node   = this.getNode(Id);
+    var obj    = {};
+    var that   = this;
+    var nodes  = [];
+    var attrs = ['text', 'icon', 'href', 'tags', 'state', 'color', 'backColor'];
+
+    $.each(attrs, function(id, x){
+      obj[x] = node[x];
+    });
+
+    $.each(node.nodes || [], function(id, x){
+      nodes.push(that.toObject(x.nodeId));
+    });
+
+    obj.nodes = nodes;
+    return obj;
+  };
+
+  Tree.prototype.toJSON = function(Id) {
+    var node   = this.getNode(Id);
+    return JSON.stringify(this.toObject(Id));
+  };
+
+  Tree.prototype.removeNode = function(Id) {
+
+    var node   = this.getNode(Id);
+    var parent = this.getNode(node.parentId);
+    var nodes  = parent.nodes || [];
+
+    var new_nodes = [];
+
+    $.each(nodes, function(id, x) {
+      if (x.nodeId != Id) new_nodes.push(x);
+    });
+
+    parent.nodes = new_nodes;
     this.render();
   };
 

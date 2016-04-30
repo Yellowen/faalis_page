@@ -2,47 +2,63 @@ define "faalis/page/dashboard/menus/new", ['bootstrap-treeview/bootstrap-treevie
   console.log('Initializing menu new interface')
 
   $form        = $('.form.details')
-  $parent_form = $('form.parent.form')
-  $main_form   = $('form.new_menu')
+  $main_form   = $('#new_menu')
 
-  data = [{
-    text: 'Chane me',
-    icon: 'fa fa-user',
-    selectedIcon: 'fa fa-group',
-    selectable: true,
-    nodes: [],
-  },
-  {
-    text: 'Chane me',
-    icon: 'fa fa-user',
-    href: '#asd'
-    selectedIcon: 'fa fa-group',
-    selectable: true,
-    nodes: [],
-  }]
+
+  try
+    data = JSON.parse($("#menu-data").val())
+  catch error
+    if error instanceof SyntaxError
+      data = [{ text: 'Chane me', icon: 'fa fa-user', selectable: true, nodes: [] }]
+    else
+      thow error
+
+  save_json = ->
+    json = $tree.toJSON(0)
+    $("#menu-data").val(json)
 
   node_selected = (event, data) ->
     $form.attr('data-current', data.nodeId)
-    $parent_form.attr('data-id', data.nodeId)
 
-    $parent_form.find('#parent_text').val(data.text)
-    $parent_form.find('#parent_icon').val(data.icon)
-    $parent_form.find('#parent_href').val(data.href)
+    $form.find('#text').val(data.text)
+    $form.find('#icon').val(data.icon)
+    $form.find('#href').val(data.href)
+    $form.find('#text').focus()
 
   add_node = ->
-    parent_id = $form.data('current')
+    parent_id = parseInt($form.attr('data-current'))
 
-    new_node  = Object.fromQueryString($form.serialize())
+    new_node  = { text: '' }
     $tree.addNode(parent_id, new_node)
+    $tree.expandNode(parent_id)
+    save_json()
+
+  save_node = ->
+    node_id = parseInt($form.attr('data-current'))
+    node    = $tree.getNode(node_id)
+
+    node.text = $form.find('#text').val()
+    node.icon = $form.find('#icon').val()
+    node.href = $form.find('#href').val()
+    $tree.render()
+    save_json()
+
+  delete_node = ->
+    node_id = parseInt($form.attr('data-current'))
+    $tree.removeNode(node_id)
+    save_json()
 
   $('#tree').treeview {
     data: data
+    levels: 5,
     onNodeSelected: node_selected
   }
+
   $tree = $('#tree').data('treeview')
 
-  $('.add_button').on('click', add_node)
-  $("#icon-btn").iconSelector({input: '#icon'});
-  $("#parent-icon-btn").iconSelector({input: '#parent_icon'});
+  $('.add_empty_item').on('click', add_node)
+  $('#icon-btn').iconSelector({input: '#icon'});
+  $('.save-item').on('click', save_node)
+  $('.remove-item').on('click', delete_node)
 
   return $tree

@@ -19,3 +19,5 @@ en:
           change: Change
           delete: Delete
           menu_tree: Menu tree
+          current_node: Current Item
+          save: Save
