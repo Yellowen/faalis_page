@@ -1,9 +1,8 @@
 define "faalis/page/dashboard/menus/new", ['bootstrap-treeview/bootstrap-treeview', 'icon-selector/icon-selector'], (bt, icon_selector) ->
-  console.log('Initializing menu new interface')
 
   $form        = $('.form.details')
   $main_form   = $('#new_menu')
-
+  $tree        = null
 
   try
     data = JSON.parse($("#menu-data").val())
@@ -14,8 +13,11 @@ define "faalis/page/dashboard/menus/new", ['bootstrap-treeview/bootstrap-treevie
       thow error
 
   save_json = ->
-    json = $tree.toJSON(0)
+    json  = $tree.toJSON(0)
+    title = $tree.getNode(0).text
+
     $("#menu-data").val(json)
+    $("#menu-title").val(title)
 
   node_selected = (event, data) ->
     $form.attr('data-current', data.nodeId)
@@ -48,17 +50,24 @@ define "faalis/page/dashboard/menus/new", ['bootstrap-treeview/bootstrap-treevie
     $tree.removeNode(node_id)
     save_json()
 
-  $('#tree').treeview {
-    data: data
-    levels: 5,
-    onNodeSelected: node_selected
-  }
+  initialize = ->
 
-  $tree = $('#tree').data('treeview')
+    console.log('Initializing menu new interface')
 
-  $('.add_empty_item').on('click', add_node)
-  $('#icon-btn').iconSelector({input: '#icon'});
-  $('.save-item').on('click', save_node)
-  $('.remove-item').on('click', delete_node)
+    $('#tree').treeview {
+      data: data
+      levels: 5,
+      onNodeSelected: node_selected
+    }
 
-  return $tree
+    $tree = $('#tree').data('treeview')
+
+    $('.add_empty_item').on('click', add_node)
+    $('#icon-btn').iconSelector({input: '#icon'});
+    $('.save-item').on('click', save_node)
+    $('.remove-item').on('click', delete_node)
+
+  $ ->
+    initialize()
+
+  return this
