@@ -1,0 +1,3 @@
+- target = get_url(@show_route, @resource.id, @engine)
+- index  = get_url(@index_route, nil, @engine)
+= render partial: 'faalis/page/dashboard/menus/form', locals: { index: index, target: target}

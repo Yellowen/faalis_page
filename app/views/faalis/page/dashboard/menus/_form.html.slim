@@ -1,0 +1,104 @@
+.row
+  .col-xs-12.col-md-4
+    .row
+      .col-xs-12
+        .box.box-info
+          = semantic_form_for(@resource, url: target, remote: true, html: { multipart: @multipart }) do |f|
+
+            .box-header.with-border
+              h1
+                = t('faalis.page.dashboard.menu.menu_details')
+
+            .box-body
+                .form-group.margin
+                  label for="lang"
+                    = t('faalis.page.dashboard.menu.lang')
+                  select#lang.form-control name="menu[lang]"
+                    - I18n.available_locales.each do |lang|
+                      option value=(lang)
+                        = lang
+
+                .form-group.margin
+                  input#menu-data.hidden-input type="hidden" name="menu[items]" value=(@resource.items)
+
+                .form-group.margin
+                  input#menu-title.hidden-input type="hidden" name="menu[title]" value=(@resource.title)
+
+            .box-footer
+              .row
+                .col-sm-4.col-xs-12
+                  button#submit.btn.btn-flat.btn-success.btn-block type="submit"
+                    i.fa.fa-check
+                    span
+                      = t('faalis.save')
+
+                .col-sm-4.pull-right.col-xs-12
+
+                  a.btn.btn-danger.btn-flat.btn-block href=(index)
+                    i.fa.fa-times
+                    span
+                      = t('faalis.cancel')
+
+
+    .row
+      .col-xs-12
+        .box.box-solid
+          .box-header.with-border
+              h2
+                i.fa.fa-question
+                = t('faalis.page.dashboard.menu.hints')
+          .box-body
+              = t('faalis.page.dashboard.menu.hints_html').html_safe
+
+          .box-footer
+
+
+  .col-xs-12.col-md-8
+      .row
+        .col-xs-12.col-md-6
+
+
+          .box.box-default
+            .box-header.with-border
+              .pull-left
+                h3.box-title
+                    = t('faalis.page.dashboard.menu.menu_tree')
+
+            .box-body
+              #tree
+            .box-footer
+                button.add_empty_item.btn.btn-flat type="button"
+                  i.fa.fa-plus.fa-lg
+
+                .pull-right
+
+                    button.btn.btn-danger.remove-item.btn-flat type="button"
+                      i.fa.fa-minus.fa-lg
+
+        .col-xs-12.col-md-6
+          .box.box-warning
+            .box-header.with-border
+              h3.box-title
+                = t('faalis.page.dashboard.menu.current_node')
+            .box-body
+              form.form.details data-current=0
+                .form-group.margin
+                  input#text.form-control name="text" placeholder=(t('faalis.page.dashboard.menu.text'))
+
+                .form-group.margin
+                  input#href.form-control name="href" placeholder=(t('faalis.page.dashboard.menu.href'))
+
+
+                .input-group.margin
+                    input#icon.form-control name="icon" placeholder=(t('faalis.page.dashboard.menu.icon'))
+                    span.input-group-btn
+                      button#icon-btn.form-control.icon-selector.btn.btn-primary.btn-flat type="button"
+                          i.fa.fa-cog
+
+
+                .form-group
+            .box-footer
+              .row
+                .col-xs-12
+                  button.btn.btn-info.save-item.btn-block.btn-flat
+                    = t('faalis.page.dashboard.menu.save')
