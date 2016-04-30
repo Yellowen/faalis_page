@@ -1,0 +1,21 @@
+en:
+  faalis:
+    page:
+      dashboard:
+        menu:
+          menu_details: Menu Details
+          lang: Language
+          hints: Hints
+          hints_html: TODO change the menu hint in faalis_page.en.yml
+          new: New
+          text: "Item's title"
+          href: "Item's href"
+          icon: "Item's icon"
+          add: Add
+          parent: Parent item
+          parent_text: "Parent's title"
+          parent_href: "Parent's href"
+          parent_icon: "Parent's icon"
+          change: Change
+          delete: Delete
+          menu_tree: Menu tree
