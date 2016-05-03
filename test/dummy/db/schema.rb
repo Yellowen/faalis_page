@@ -39,13 +39,12 @@ ActiveRecord::Schema.define(version: 20160416130832) do
 
   create_table "faalis_page_menus", force: :cascade do |t|
     t.string   "title"
-    t.integer  "site_id"
     t.boolean  "published",  default: false
     t.integer  "user_id"
     t.json     "data"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "domain_id"
+    t.integer  "site_id"
   end
 
   add_index "faalis_page_menus", ["site_id"], name: "index_faalis_page_menus_on_site_id", using: :btree
@@ -63,10 +62,11 @@ ActiveRecord::Schema.define(version: 20160416130832) do
     t.boolean  "published",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "domain_id"
+    t.integer  "site_id"
   end
 
   add_index "faalis_page_pages", ["permalink"], name: "index_faalis_page_pages_on_permalink", using: :btree
+  add_index "faalis_page_pages", ["site_id"], name: "index_faalis_page_pages_on_site_id", using: :btree
 
   create_table "faalis_permissions", force: :cascade do |t|
     t.string   "model"

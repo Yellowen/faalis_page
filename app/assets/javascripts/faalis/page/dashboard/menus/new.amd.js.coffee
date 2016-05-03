@@ -3,14 +3,11 @@ define "faalis/page/dashboard/menus/new", ['bootstrap-treeview/bootstrap-treevie
   $form        = $('.form.details')
   $main_form   = $('#new_menu')
   $tree        = null
+  data         = null
+  default_item = [{ text: 'Chane me', icon: 'fa fa-user', selectable: true, nodes: [] }]
 
-  try
-    data = JSON.parse($("#menu-data").val())
-  catch error
-    if error instanceof SyntaxError
-      data = [{ text: 'Chane me', icon: 'fa fa-user', selectable: true, nodes: [] }]
-    else
-      thow error
+  __loaded__   = false
+
 
   save_json = ->
     json  = $tree.toJSON(0)
@@ -52,7 +49,26 @@ define "faalis/page/dashboard/menus/new", ['bootstrap-treeview/bootstrap-treevie
 
   initialize = ->
 
+    return if __loaded__ == true
+
+    __loaded__ = true
+
     console.log('Initializing menu new interface')
+
+    try
+      data = JSON.parse($("#menu-data").val())
+
+      if data == null
+        data = default_item
+
+    catch error
+      if error instanceof SyntaxError
+        data = default_item
+      else
+        thow error
+
+    console.log("DATA: ", data)
+
 
     $('#tree').treeview {
       data: data
@@ -68,6 +84,10 @@ define "faalis/page/dashboard/menus/new", ['bootstrap-treeview/bootstrap-treevie
     $('.remove-item').on('click', delete_node)
 
   $ ->
+    initialize()
+
+  $(document).on 'amd:done', ->
+    console.log("................")
     initialize()
 
   return this

@@ -16,10 +16,9 @@
 module Faalis::Page
   class Menu < ActiveRecord::Base
     include ::Faalis::Concerns::Authorizable
-    include ::SiteFramework::DomainAware
+    include ::SiteFramework::SiteAware
 
     belongs_to :user, class_name: 'Faalis::User'
-    belongs_to :site, class_name: 'SiteFramework::Site'
 
     scope :published, -> { where(published: true) }
 

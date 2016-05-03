@@ -547,7 +547,7 @@
 
   Tree.prototype.toJSON = function(Id) {
     var node   = this.getNode(Id);
-    return JSON.stringify(this.toObject(Id));
+    return JSON.stringify([this.toObject(Id)]);
   };
 
   Tree.prototype.removeNode = function(Id) {
