@@ -1,12 +1,20 @@
 class CreatePages < ActiveRecord::Migration
   def change
-    create_table :faalis_page_pages do |t|
+    args = {}
+    args[:id] = :uuid if Faalis::Engine.use_uuid
+
+    create_table :faalis_page_pages, **args do |t|
       t.string :title
       t.string :layout, default: 'layouts/page'
       t.string :description
       t.string :tags
       t.string :permalink
-      t.integer :user_id
+
+      if Faalis::Engine.use_uuid
+        t.uuid :user_id
+      else
+        t.integer :user_id
+      end
 
       t.text :raw_content
       t.text :content
