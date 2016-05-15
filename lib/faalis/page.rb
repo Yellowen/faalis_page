@@ -4,7 +4,9 @@ require 'rails-assets-bootstrap-treeview'
 
 module Faalis
   module Page
-    #autoload :Engine, 'faalis/page/engine'
+    module Components
+      autoload :Menu, 'faalis/page/components/menu'
+    end
   end
 end
 
