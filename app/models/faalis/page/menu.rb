@@ -40,6 +40,8 @@ module Faalis::Page
 
     def data
       _data = read_attribute(:data)
+      return nil if _data.nil?
+
       _data.map do |node|
         ::ActiveSupport::HashWithIndifferentAccess.new(node)
       end

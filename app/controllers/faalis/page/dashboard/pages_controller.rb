@@ -14,6 +14,6 @@ class Faalis::Page::Dashboard::PagesController < ::Dashboard::ApplicationControl
   def before_create_hook(resource)
     resource.user = current_user
 
-    resource.domain_id = SiteFramework.current_site
+    resource.site = SiteFramework.current_site
   end
 end
