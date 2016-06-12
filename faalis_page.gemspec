@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'faalis'
-  s.add_dependency 'redcarpet'
+  s.add_dependency 'kramdown'
   s.add_dependency 'site_framework'
   s.add_dependency 'rails-assets-bootstrap-treeview'
 end

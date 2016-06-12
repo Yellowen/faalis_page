@@ -4,6 +4,7 @@ class CreateFaalisPageMenus < ActiveRecord::Migration
     args[:id] = :uuid if Faalis::Engine.use_uuid
 
     create_table :faalis_page_menus, **args do |t|
+      t.string :name
       t.string :title
       t.boolean :published, default: false
 

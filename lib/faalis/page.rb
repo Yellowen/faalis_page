@@ -1,4 +1,4 @@
-require 'redcarpet'
+require 'kramdown'
 require 'site_framework'
 require 'rails-assets-bootstrap-treeview'
 
